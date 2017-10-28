@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!--reset stylesheet-->
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+  <!--stylesheet-->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/javascript" href="assets/javascript/jsstyle.js">
+  
+  <!--meta info for responsiveness-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--bootstrap-->
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<head>
+  <meta charset="utf-8">
+  <title>Holidays</title>
+  
+</head>
+
+<body>
+
+  <div class="container">
+    <!--heading-->
+    <h1>What is your favorite Holiday?</h1>
+    
+    <!--Put buttons here for each initial array of holidays-->
+    <div id="holiday-view"></div>
+   
+
+    <form id="holiday-form">
+      <label for="holiday-input">Add a Holiday</label>
+      <input type="text" id="holiday-input">
+      <br>
+
+      <!-- Button triggers new holiday to be added -->
+      <input id="add-holiday" type="submit" value="Add your favorite holiday">
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      
+      //API Key
+      var APIKey = "NfjGwXVTVCgEGMawDPEr5a6iJRkDaNTJ"
+
+      //URL for the database to query
+      var queryURL = 
+
+      // Initial array of holidays
+      var holidays = [
+        "Valentine’s Day",
+        "Earth Day",
+        "Mother’s Day",
+        "Father’s Day",
+        "Flag Day",
+        "Halloween",
+        "Easter",
+        "High Holy Days",
+        "Ramadan",
+        "Memorial Day",
+        "Veterans Day",
+        "New Year’s Day",
+        "President's Day",
+        "Memorial Day",
+        "Independence Day",
+        "Labor Day",
+        "Columbus Day",
+        "Veterans Day",
+        "Thanksgiving Day",
+        "Christmas Day",
+        "Mardi Gras",
+        "Palm Sunday",
+      ];
+
+        function alertHolidayName(){
+
+          console.log($(this).attr("data-name"));
+        }
+
+
+      // Function for displaying holiday data
+      function renderButtons() {
+
+        // Delete the content inside the holidays-view div prior to adding new holidays
+        // (this is necessary otherwise you will have repeat buttons)
+
+        $("#holiday-view").empty();
+
+
+        // Loop through the array of holidays, then generate buttons for each holiday in the array
+
+        for(var i = 0; i < holidays.length; i++) {
+          
+          console.log(i, holidays[i]);
+
+          var a = $("<button>");
+          //adding a class
+          a.addClass("holiday");
+          //add a data attribute
+          a.attr("data-name", holidays[i]);
+          //put the name of the holiday on the button
+          a.text(holiays[i]);
+          //put the button into the html
+          $("#holiday-view").append(a);
+          
+        }
+
+      }
+
+      // This function handles events where the add holiday button is clicked
+      $("#add-holiday").on("click", function(event) {
+        // event.preventDefault() prevents submit button from trying to send a form.
+        // Using a submit button instead of a regular button allows the user to hit
+        // "Enter" instead of clicking the button if desired
+        event.preventDefault();
+
+        // Write code to grab the text the user types into the input field
+        // Write code to add the new holiday into the holidays array
+        var holiday = $("#holiday-input").val().trim();
+
+        //The holiday is then added to the array
+
+        holidays.push(holiday)
+
+        // The renderButtons function is called, rendering the list of holiday buttons
+        renderButtons();
+      });
+
+        //Function to display the holiday info
+
+        
+
+      // Calling the renderButtons function to display the initial list of holidays
+
+      $(document).on("click", ".holiday", alertHolidayName);
+     
+      renderButtons();
+    </script>
+  </div>
+</body>
+
+</html>
