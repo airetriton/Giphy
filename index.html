@@ -8,9 +8,10 @@
   <!--stylesheet-->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <link rel="stylesheet" type="text/javascript" href="assets/javascript/jsstyle.js">
+
   
   <!--meta info for responsiveness-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!--bootstrap-->
 
@@ -25,20 +26,20 @@
 <body>
 
   <div class="container">
-    <!--heading-->
-    <h1>What is your favorite Holiday?</h1>
-    
+    <div id="heading"><!--heading-->
+    <h1>What Is Your Favorite Holiday?</h1>
+    </div>
     <!--Put buttons here for each initial array of holidays-->
     <div id="holiday-view"></div>
    
 
     <form id="holiday-form">
-      <label for="holiday-input"><h3>Add a Holiday</h3></label>
-      <input type="text" id="holiday-input">
-      <br>
+      <!--<label for="holiday-input"><h3>Add Another Holiday</h3></label>_-->
+      <input type="text" id="holiday-input" placeholder="  Add Another Holiday Here & Then Click The Button To Add It To The List">
+      
 
       <!-- Button triggers new holiday to be added -->
-      <input id="add-holiday" type="submit" value="Add your favorite holiday">
+      <input id="add-holiday" type="submit" value="Add Your Favorite Holiday">
     </form>
 
     <div id="gifs-appear-here">
@@ -61,11 +62,9 @@
         "Veterans Day",
         "New Year’s Day",
         "President's Day",
-        "Memorial Day",
         "Independence Day",
         "Labor Day",
         "Columbus Day",
-        "Veterans Day",
         "Thanksgiving Day",
         "Mardi Gras",
       ];
@@ -180,6 +179,15 @@
         }
 
       });
+
+        $(document).on("click", "button", function(){
+          var backgroundImage = [
+          ]
+
+
+
+
+        })
 
 });
 
